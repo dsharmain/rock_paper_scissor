@@ -55,21 +55,21 @@ function game() {
     let tie = 0;
     let lose = 0;
     let win = 0;
-    for(let i = 0; i < 5; i++) {
-        switch(playRound()) {
-            case "tie":
-                tie++;
-                break;
-            case "lose":
-                lose++;
-                break;
-            case "win":
-                win++;
-                break;
-        }
-        //console.log("win :" + win);
-        //console.log("lose :" + lose);
-    }
+    // for(let i = 0; i < 5; i++) {
+    //     switch(playRound()) {
+    //         case "tie":
+    //             tie++;
+    //             break;
+    //         case "lose":
+    //             lose++;
+    //             break;
+    //         case "win":
+    //             win++;
+    //             break;
+    //     }
+    //     //console.log("win :" + win);
+    //     //console.log("lose :" + lose);
+    // }
     if (win > lose) {
         console.log("You are the winner after 5 rounds of the game!");
     } else if (lose > win) {
