@@ -1,13 +1,19 @@
 console.log("Hello");
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
 function getComputerChoice() {
     return Math.floor(Math.random() * 3);
 }
+const player = document.querySelector("#player");
+const computer = document.querySelector("#computer");
+const ties = document.querySelector("#ties");
+
 //console.log(getComputerChoice());
 
 //console.log(playerSelection);
 
-function playRound() {
-    let playerSelection = (prompt("Choose from Rock Paper or Scissors")).toUpperCase();
+function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
     let playerSelected;
     let computerSelected;
@@ -55,6 +61,110 @@ function game() {
     let tie = 0;
     let lose = 0;
     let win = 0;
+    // let rounds = 0;
+    rock.addEventListener('click', () => {
+        console.log("You selected "+rock.id.toUpperCase());
+        switch(playRound(rock.id.toUpperCase())) {
+            case "tie":
+                tie++;
+                ties.textContent = "Number of ties "+tie;
+                break;
+            case "lose":
+                lose++;
+                computer.textContent = "Computer Score "+lose;
+                break;
+            case "win":
+                win++;
+                player.textContent = "Player Score "+win;
+                break;
+        }
+        // rounds++;
+        if (win > 4 || lose > 4){
+            setTimeout(() => {
+                if (win > lose) {
+                    alert("You are the winner!");
+                } else {
+                    alert("Computer won.");
+                }
+            win = 0;
+            lose = 0;
+            tie = 0;
+            ties.textContent = "Number of ties "+tie; 
+            computer.textContent = "Computer Score "+lose;
+            player.textContent = "Player Score "+win;
+            }, 0);
+        }
+
+        // console.log("Rock rounds :"+rounds);
+    });
+    
+    paper.addEventListener('click', () => {
+        console.log("You selected "+paper.id.toUpperCase());
+        switch(playRound(paper.id.toUpperCase())) {
+            case "tie":
+                tie++;
+                ties.textContent = "Number of ties "+tie;
+                break;
+            case "lose":
+                lose++;
+                computer.textContent = "Computer Score "+lose;
+                break;
+            case "win":
+                win++;
+                player.textContent = "Player Score "+win;
+                break;
+        }
+        // rounds++;
+        if (win > 4 || lose > 4){
+            setTimeout(() => {
+                if (win > lose) {
+                    alert("You are the winner!");
+                } else {
+                    alert("Computer won.");
+                }
+            win = 0;
+            lose = 0;
+            tie = 0;
+            ties.textContent = "Number of ties "+tie; 
+            computer.textContent = "Computer Score "+lose;
+            player.textContent = "Player Score "+win;
+            }, 0);
+        }
+    });
+    
+    scissors.addEventListener('click', () => {
+        console.log("You selected "+scissors.id.toUpperCase());
+        switch(playRound(scissors.id.toUpperCase())) {
+            case "tie":
+                tie++;
+                ties.textContent = "Number of ties "+tie;
+                break;
+            case "lose":
+                lose++;
+                computer.textContent = "Computer Score "+lose;
+                break;
+            case "win":
+                win++;
+                player.textContent = "Player Score "+win;
+                break;
+        }
+        // rounds++;
+        if (win > 4 || lose > 4){
+            setTimeout(() => {
+                if (win > lose) {
+                    alert("You are the winner!");
+                } else {
+                    alert("Computer won.");
+                }
+            win = 0;
+            lose = 0;
+            tie = 0;
+            ties.textContent = "Number of ties "+tie; 
+            computer.textContent = "Computer Score "+lose;
+            player.textContent = "Player Score "+win;
+            }, 0);
+        }
+    });
     // for(let i = 0; i < 5; i++) {
     //     switch(playRound()) {
     //         case "tie":
@@ -70,12 +180,8 @@ function game() {
     //     //console.log("win :" + win);
     //     //console.log("lose :" + lose);
     // }
-    if (win > lose) {
-        console.log("You are the winner after 5 rounds of the game!");
-    } else if (lose > win) {
-        console.log("Computer won after the 5 rounds.")
-    } else {
-        console.log("Its a tie after 5 rounds.")
-    }
+    
+    // console.log("rounds :" + rounds);
+    
 }
 game();
